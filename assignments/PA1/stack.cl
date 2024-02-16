@@ -43,9 +43,10 @@ class Stack {
     };
 
     pop () : Stack {
-      let
-          nil : List
-      in
+        let
+            nil : List
+        in
+        {
             if (isvoid top) then
                self
             else 
@@ -53,7 +54,8 @@ class Stack {
                top <- top.next();
                self;
             }
-            fi
+            fi;
+        }
     };
 
     top () : List {
@@ -102,6 +104,7 @@ class Ecmd {
                         top2 <- s.top().item();
                         s.pop();
                         top3 <- s.top().item();
+                        s.pop();
                         s.push(conv.i2a(conv.a2i(top2) + conv.a2i(top3)));
                     }
                     else 
@@ -111,6 +114,7 @@ class Ecmd {
                                 top2 <- s.top().item();
                                 s.pop();
                                 top3 <- s.top().item();
+                                s.pop();
                                 s.push(top2);
                                 s.push(top3);
                             }
